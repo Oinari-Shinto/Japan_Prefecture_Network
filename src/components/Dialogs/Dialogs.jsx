@@ -8,7 +8,7 @@ import DialogData from './../Profile/Profile';
 
 
 
-
+//@Oinari
 const Dialogs = (props) => {
     let dialogs = [
         {id: 1, name: 'Genbu'},
