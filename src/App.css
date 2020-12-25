@@ -1,0 +1,19 @@
+.App {
+    display: grid;
+    grid-template-areas: "header header header""nbLeft content nbRight""nbLeft nw nbRight""nbLeft p nbRight";
+    grid-template-columns: 1fr 10fr 1fr;
+    grid-template-rows: 250px 1fr 250px 1fr;
+
+    text-align: center;
+}
+
+.App-content {
+
+        grid-area: nw;
+        background-color: #282c34;
+        text-align: left;
+        padding: 10px;
+        
+        
+
+}

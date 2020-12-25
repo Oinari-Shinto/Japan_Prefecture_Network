@@ -1,0 +1,18 @@
+.nav {
+  grid-area: nbLeft;
+  background-color:#30353f ;
+  
+}
+.item a {
+  color: white;
+  text-decoration: none;
+}
+
+.topNav{
+  margin-top: 20px;
+}
+
+
+.item a.activeLink {
+  color: goldenrod;
+}
