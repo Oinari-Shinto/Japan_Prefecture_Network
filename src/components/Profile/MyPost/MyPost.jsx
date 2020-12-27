@@ -1,15 +1,14 @@
 import React from 'react';
 import s from './MyPost.module.css'
 import Post from './Post/Post';
-import DataPost from './../Profile'
+
+
 
 const MyPost = (props) => {
-  let posts = [
-    {id :1, message : 'It\'s best Japanese guide Post Tokyo', lileCount :'15'},
-    {id :1, message : 'First publication release Post Chiba', lileCount :'25'}
-  ]
- 
-  let postsElement = posts.map(p => <Post message = {p.message} likeCount={p.lileCount}/>)
+  
+  let postsElement = props.posts.map (p => <Post message = {p.message} likeCount={p.likeCount}/>);
+
+
 
   return (
     <div> <h3>My Post</h3>

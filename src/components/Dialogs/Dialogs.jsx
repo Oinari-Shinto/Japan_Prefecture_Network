@@ -4,27 +4,27 @@ import Navbar from '../NavBar/Navbar';
 import DialogItem from './DialogItem/DialogItem';
 import s from './Dialogs.module.css';
 import Message from './Message/Message';
-import DialogData from './../Profile/Profile';
 
 
 
-//@Oinari
+
+
 const Dialogs = (props) => {
-    let dialogs = [
-        {id: 1, name: 'Genbu'},
-        {id: 2, name: 'Tosiro'},
-        {id: 3, name: 'Shinjiru'},
-        {id: 4, name: 'Kami-Sama'},
-        {id: 5, name: 'Kuhulin'}
-    ]
-    let messages = [
-        {id: 1, message: 'おはようございます'},
-        {id: 2, message: 'You are the best'},
-        {id: 3, message: 'Nice speed'}
-    ]
+    // let dialogs = [
+    //     {id: 1, name: 'Genbu'},
+    //     {id: 2, name: 'Tosiro'},
+    //     {id: 3, name: 'Shinjiru'},
+    //     {id: 4, name: 'Kami-Sama'},
+    //     {id: 5, name: 'Kuhulin'}
+    // ]
+    // let messages = [
+    //     {id: 1, message: 'おはようございます'},
+    //     {id: 2, message: 'You are the best'},
+    //     {id: 3, message: 'Nice speed'}
+    // ]
 
-    let dialogsElement = dialogs.map (d => <DialogItem name={d.name} id ={d.id}/>);
-    let messagesElement = messages.map ( m => <Message message = {m.message}/>)
+    let dialogsElement = props.dialogs.map (d => <DialogItem name={d.name} id ={d.id}/>);
+    let messagesElement = props.messages.map ( m => <Message message = {m.message}/>);
 
 
     return (
@@ -38,6 +38,7 @@ const Dialogs = (props) => {
             </div>
             <div className={s.messages}>
                 { messagesElement }
+                
                 {/* <Message message = {messages[0].message}/>
                 <Message message = {messages[1].message}/>
                 <Message message = {messages[2].message}/> */}
