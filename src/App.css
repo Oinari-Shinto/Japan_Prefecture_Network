@@ -1,8 +1,14 @@
 .App {
     display: grid;
-    grid-template-areas: "header header header""nbLeft content nbRight""nbLeft nw nbRight""nbLeft p nbRight";
+    grid-template-areas: 
+    "header header header"    
+    "nbLeft  content nbRight" 
+    "nbLeft  content nbRight" 
+    "sideBarLeft   nw nbRight"   
+    "sideBarLeft   p nbRight"
+     ;
     grid-template-columns: 1fr 10fr 1fr;
-    grid-template-rows: 250px 1fr 250px 1fr;
+    grid-template-rows: 10fr 250px 250px 250px;
 
     text-align: center;
 }
