@@ -8,6 +8,7 @@ import MyPost from './components/Profile/MyPost/MyPost';
 import Dialogs from './components/Dialogs/Dialogs';
 import { BrowserRouter, Route } from 'react-router-dom';
 import SideBar from './components/SideBar/SideBar';
+import Friend from './components/SideBar/Friend/Friend';
 
 
 const App = (props) => {
@@ -19,14 +20,19 @@ const App = (props) => {
 
         <Header />
         <Navbar />
-        <SideBar />
+        
         <NavbarRight />
         <Preview />
-        <Route path ='/MyPost' component={MyPost}/>
+        <div className='App-sidebar-content'>
+           <SideBar state= {props.state.sidebar}  />
+          
+        </div>
         
        <div className='App-content'>
-          <Route path='/dialogs'> <Dialogs state={props.state.dialogsPage}  /></Route>
+          
+          <Route path='/dialogs'> <Dialogs state= {props.state.dialogsPage}  /></Route>
           <Route path='/profile'> <Profile state= {props.state.profilePage}/></Route>
+          
           {/* <Dialogs /> */}
           {/* <News /> */}    
       </div> 

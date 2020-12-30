@@ -8,22 +8,7 @@ import state from './redux/State.js';
 
 
 
-// let dialogs = [
-//   {id: 1, name: 'Genbu'},
-//   {id: 2, name: 'Tosiro'},
-//   {id: 3, name: 'Shinjiru'},
-//   {id: 4, name: 'Kami-Sama'},
-//   {id: 5, name: 'Kuhulin'}
-// ]
-// let messages = [
-//       {id: 1, message: 'おはようございます'},
-//       {id: 2, message: 'You are the best'},
-//       {id: 3, message: 'Nice speed'}
-//   ]
-// let posts = [
-//   {id :1, message : "It's best Japanese guide Post Tokyo", likeCount : 15},
-//   {id :1, message : 'First publication release Post Chiba', likeCount : 25}
-// ]
+
 ReactDOM.render(
   
   <React.StrictMode>

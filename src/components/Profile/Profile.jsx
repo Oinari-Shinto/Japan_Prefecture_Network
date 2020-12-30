@@ -3,6 +3,7 @@ import MyPost from './MyPost/MyPost';
 import s from'./Profile.css'
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 import Dialogs from '../Dialogs/Dialogs';
+import Friend from '../SideBar/Friend/Friend';
 
 
 
@@ -21,6 +22,7 @@ const Profile = (props) => {
   <div>
    <ProfileInfo />
    <MyPost posts={props.state.posts}/>
+   
 
   
   </div>

@@ -6,7 +6,7 @@ const Post = (props) => {
 
 
   <div className={s.item}>    
-    <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Flag_of_Tokyo_Prefecture.svg/120px-Flag_of_Tokyo_Prefecture.svg.png'/>
+    {props.img}
     {props.message}
     <div>
     <span>like </span> {props.likeCount}

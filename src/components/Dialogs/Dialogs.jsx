@@ -23,26 +23,43 @@ const Dialogs = (props) => {
     //     {id: 3, message: 'Nice speed'}
     // ]
 
-    let dialogsElement = props.state.dialogs.map (d => <DialogItem name={d.name} id ={d.id}/>);
-    let messagesElement = props.state.messages.map ( m => <Message message = {m.message}/>);
+    let dialogsElement = props.state.dialogs.map(d => <DialogItem name={d.name} id={d.id} img={d.img} />);
+    let messagesElement = props.state.messages.map(m => <Message message={m.message} />);
+
+    let newCommentElement = React.createRef();
+
+    let commentElement = () => {
+        let text = newCommentElement.current.value;
+        alert(text);
+
+    }
+
+
 
 
     return (
         <div className={s.dialogs}>
             <div className={s.dialogItems}>
-                { dialogsElement }
+                {dialogsElement}
                 {/* <DialogItems name={dialogs[0].name} id={dialogs[0].id}/>
                 <DialogItems name={dialogs[1].name} id={dialogs[1].id}/>
                 <DialogItems name={dialogs[2].name} id={dialogs[2].id}/> */}
-                
+
             </div>
             <div className={s.messages}>
-                { messagesElement }
-                
+                {messagesElement}
+
+
+                <div>
+                    <textarea ref={newCommentElement}></textarea>
+                    <div>
+                        <button onClick={ commentElement }>Add comment</button>
+                    </div>
+                </div>
                 {/* <Message message = {messages[0].message}/>
                 <Message message = {messages[1].message}/>
                 <Message message = {messages[2].message}/> */}
-                
+
             </div>
         </div>
     )

@@ -11,8 +11,17 @@
 }
 .dialog a{
   color: white;
-  text-decoration: none;
+  text-decoration: none;    
 }
+.dialog img{
+  width: 50px;
+}
+.item{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
 
 .dialog.active {
   color: orange;
