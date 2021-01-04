@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { sendMessageCreator, updateNewMessageBodyCreator } from '../../redux/State';
 import Navbar from '../NavBar/Navbar';
 import DialogItem from './DialogItem/DialogItem';
 import s from './Dialogs.module.css';
@@ -10,31 +11,23 @@ import Message from './Message/Message';
 
 
 const Dialogs = (props) => {
-    // let dialogs = [
-    //     {id: 1, name: 'Genbu'},
-    //     {id: 2, name: 'Tosiro'},
-    //     {id: 3, name: 'Shinjiru'},
-    //     {id: 4, name: 'Kami-Sama'},
-    //     {id: 5, name: 'Kuhulin'}
-    // ]
-    // let messages = [
-    //     {id: 1, message: 'おはようございます'},
-    //     {id: 2, message: 'You are the best'},
-    //     {id: 3, message: 'Nice speed'}
-    // ]
 
-    let dialogsElement = props.state.dialogs.map(d => <DialogItem name={d.name} id={d.id} img={d.img} />);
-    let messagesElement = props.state.messages.map(m => <Message message={m.message} />);
+    let state = props.store.getState().dialogsPage;
 
-    let newCommentElement = React.createRef();
+    let dialogsElement = state.dialogs.map(d => <DialogItem name={d.name} id={d.id} img={d.img} />);
+    let messagesElement = state.messages.map(m => <Message message={m.message} />);
+    let newMessageBody = state.newMessageBody;
 
-    let commentElement = () => {
-        let text = newCommentElement.current.value;
-        alert(text);
+    //let newCommentElement = React.createRef();
 
+    let onSendMessageClick = () => {
+       props.store.dispatch(sendMessageCreator());
+        
     }
-
-
+    let onSendMessageChange = (e) => {
+       let newBody = e.target.value;
+       props.store.dispatch(updateNewMessageBodyCreator(newBody));
+    }
 
 
     return (
@@ -47,13 +40,16 @@ const Dialogs = (props) => {
 
             </div>
             <div className={s.messages}>
-                {messagesElement}
-
-
+               
+                <div>{messagesElement}</div>
+                
                 <div>
-                    <textarea ref={newCommentElement}></textarea>
+                    <textarea placeholder="Enter your message" 
+                              value={newMessageBody}
+                              onChange={onSendMessageChange} 
+                              ></textarea>
                     <div>
-                        <button onClick={ commentElement }>Add comment</button>
+                        <button onClick={ onSendMessageClick }>Send</button>
                     </div>
                 </div>
                 {/* <Message message = {messages[0].message}/>

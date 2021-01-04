@@ -30,8 +30,8 @@ const App = (props) => {
         
        <div className='App-content'>
           
-          <Route path='/dialogs'> <Dialogs state= {props.state.dialogsPage}  /></Route>
-          <Route path='/profile'> <Profile state= {props.state.profilePage}/></Route>
+          <Route path='/dialogs' render = { () => <Dialogs store={props.store} />} /> 
+          <Route path='/profile'> <Profile profilePage = {props.state.profilePage} dispatch={props.dispatch} /></Route>
           
           {/* <Dialogs /> */}
           {/* <News /> */}    

@@ -1,4 +1,5 @@
 import React from 'react';
+import { addPostCreator, updateNewPostTextCreator } from '../../../redux/State';
 import s from './MyPost.module.css'
 import Post from './Post/Post';
 
@@ -9,18 +10,24 @@ const MyPost = (props) => {
   let postsElement = props.posts.map (p => <Post message = {p.message} likeCount={p.likeCount} img={p.img}/>);
 
   let newPostElement = React.createRef();
-  let postElement = () => {
-    let text = newPostElement.current.value;
-    alert(text);
+  
+  
+  let addPost = () => {
+    props.dispatch(addPostCreator());
   };
+  let onPostChange = () => {
+    let text = newPostElement.current.value;
+    props.dispatch(updateNewPostTextCreator(text));
+
+  }
 
   return (
     <div> <h3>My Post</h3>
     
     <div className={s.post}>
-      <div><textarea ref={newPostElement}></textarea></div>
+      <div><textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}/></div>
       
-      <button onClick={ postElement }>Add post</button>
+      <button onClick={ addPost }>Add post</button>
       <button >Remove</button> 
     </div>
   
