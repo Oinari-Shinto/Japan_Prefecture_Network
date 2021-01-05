@@ -1,8 +1,7 @@
+import dialogsReducer from "./dialogs-reducer";
+import profileReducer from "./profile-reducer";
+import sidebarReducer from "./sidebar-reducer";
 
-const ADD_POST = 'ADD_POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
-const SEND_MESSAGE = 'SEND_MESSAGE';
 
 
 let store = {
@@ -33,6 +32,7 @@ let store = {
             newMessageBody : ""
     
         },
+        
     
         sidebar : {
             friends : [ 
@@ -53,56 +53,61 @@ let store = {
         this._callSubscriber = observer;
     },
 
-    _addPost () {
+    // _addPost () {
     
-        let newPost = {
-            id: 3,
-            message: this._state.profilePage.newPostText,
-            likeCount: 0,
-            img: <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Flag_of_Misato%2C_Saitama.svg/100px-Flag_of_Misato%2C_Saitama.svg.png'/>
+    //     let newPost = {
+    //         id: 3,
+    //         message: this._state.profilePage.newPostText,
+    //         likeCount: 0,
+    //         img: <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Flag_of_Misato%2C_Saitama.svg/100px-Flag_of_Misato%2C_Saitama.svg.png'/>
     
-        };
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostText = '';
-        this._callSubscriber(this._state);
-    }, 
-    _updateNewPostText (newText) {
+    //     };
+    //     this._state.profilePage.posts.push(newPost);
+    //     this._state.profilePage.newPostText = '';
+    //     this._callSubscriber(this._state);
+    // }, 
+    // _updateNewPostText (newText) {
     
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this._state);
-    },
+    //     this._state.profilePage.newPostText = newText;
+    //     this._callSubscriber(this._state);
+    // },
     
-    _updateNewMessageBody (newBody) {
+    // _updateNewMessageBody (newBody) {
     
-        this._state.dialogsPage.newMessageBody = newBody;
-        this._callSubscriber(this._state);
-    },
-    _updateSendMessage () {
-        //debugger;
-        let newBody =  this._state.dialogsPage.newMessageBody;
-        this._state.dialogsPage.newMessageBody = '';
-        this._state.dialogsPage.messages.push({id: 4, message: newBody});
-        this._callSubscriber(this._state);
-    },
+    //     this._state.dialogsPage.newMessageBody = newBody;
+    //     this._callSubscriber(this._state);
+    // },
+    // _updateSendMessage () {
+    //     //debugger;
+    //     let newBody =  this._state.dialogsPage.newMessageBody;
+    //     this._state.dialogsPage.newMessageBody = '';
+    //     this._state.dialogsPage.messages.push({id: 4, message: newBody});
+    //     this._callSubscriber(this._state);
+    // },
     
     
     dispatch (action) {
-        switch (action.type) {
-            case ADD_POST:
-                this._addPost();
-                break;
-            case UPDATE_NEW_POST_TEXT:
-                this._updateNewPostText(action.newText);
-                break;    
-            case UPDATE_NEW_MESSAGE_BODY:
-                this._updateNewMessageBody(action.newBody);
-                break;
-            case SEND_MESSAGE:
-                this._updateSendMessage(action.newBody);
-                break; 
-            default:
-                break;
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+        this._state.sidebar = sidebarReducer(this._state.sidebar, action);
+        this._callSubscriber(this._state);
+
+        // switch (action.type) {
+        //     case ADD_POST:
+        //         this._addPost();
+        //         break;
+        //     case UPDATE_NEW_POST_TEXT:
+        //         this._updateNewPostText(action.newText);
+        //         break;    
+        //     case UPDATE_NEW_MESSAGE_BODY:
+        //         this._updateNewMessageBody(action.newBody);
+        //         break;
+        //     case SEND_MESSAGE:
+        //         this._updateSendMessage(action.newBody);
+        //         break; 
+        //     default:
+        //         break;
+        // }
     }
     // dispatch (action) {
     //     if (action.type === ADD_POST) {
@@ -135,10 +140,7 @@ let store = {
 
 };
 
-export const addPostCreator = () => ({type :  ADD_POST})    
-export const sendMessageCreator = () => ({type :  SEND_MESSAGE})    
-export const updateNewPostTextCreator = (text) => ({type : UPDATE_NEW_POST_TEXT, newText : text})
-export const updateNewMessageBodyCreator = (newBody) => ({type : UPDATE_NEW_MESSAGE_BODY, newBody : newBody})
+
 
 export default store;
 

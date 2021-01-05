@@ -15,13 +15,6 @@ const Post = (props) => {
   </div>
 
 
-
-  {/* <div className={s.item}>
-    <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Flag_of_Chiba%2C_Chiba.svg/100px-Flag_of_Chiba%2C_Chiba.svg.png'/>
-
-    </div> */}
-
-    
   
 
 

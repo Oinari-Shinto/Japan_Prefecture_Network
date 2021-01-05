@@ -13,11 +13,6 @@ const Profile = (props) => {
 
   
   
-
-
-
-  
-  
   return (
   <div>
    <ProfileInfo />
@@ -26,7 +21,6 @@ const Profile = (props) => {
            
            dispatch={props.dispatch}/>
    
-
   
   </div>
 
