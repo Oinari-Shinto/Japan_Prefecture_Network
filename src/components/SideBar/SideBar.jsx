@@ -6,8 +6,10 @@ import s from './SideBar.module.css';
 
 
 const SideBar = (props) => {
-
-  let sideBarElement = props.state.friends.map ( f => <Friend name = {f.name} img={f.img}/>);
+  
+  let state = props.state;
+  
+  let sideBarElement = state.friends.map ( f => <Friend name = {f.name} img={f.img}/>);
   return (
 
     <div className={s.sidebar}>

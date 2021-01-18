@@ -12,7 +12,7 @@ import Message from './Message/Message';
 
 const Dialogs = (props) => {
 
-    let state = props.store.getState().dialogsPage;
+    let state = props.dialogsPage;
 
     let dialogsElement = state.dialogs.map(d => <DialogItem name={d.name} id={d.id} img={d.img} />);
     let messagesElement = state.messages.map(m => <Message message={m.message} />);
@@ -21,12 +21,11 @@ const Dialogs = (props) => {
     //let newCommentElement = React.createRef();
 
     let onSendMessageClick = () => {
-       props.store.dispatch(sendMessageCreator());
-        
+         props.SendMessage();
     }
     let onSendMessageChange = (e) => {
        let newBody = e.target.value;
-       props.store.dispatch(updateNewMessageBodyCreator(newBody));
+       props.updateNewMessageBody(newBody);
     }
 
 

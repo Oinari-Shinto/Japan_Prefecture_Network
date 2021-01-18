@@ -4,17 +4,18 @@ import Navbar from './components/NavBar/Navbar';
 import NavbarRight from './components/NavBarRight/NavbarRight';
 import Profile from './components/Profile/Profile';
 import Preview from './components/Preview/Preview';
-import MyPost from './components/Profile/MyPost/MyPost';
-import Dialogs from './components/Dialogs/Dialogs';
-import { BrowserRouter, Route } from 'react-router-dom';
-import SideBar from './components/SideBar/SideBar';
-import Friend from './components/SideBar/Friend/Friend';
+
+import DialogsContainer from './components/Dialogs/DialogsContainer';
+import { Route } from 'react-router-dom';
+
+import SideBarContainer from './components/SideBar/SideBarContainer';
+import UserContainer from './components/Users/UserContainer';
 
 
 const App = (props) => {
   
   return (
-    <BrowserRouter>
+    
       <div className="App">
         
 
@@ -24,21 +25,22 @@ const App = (props) => {
         <NavbarRight />
         <Preview />
         <div className='App-sidebar-content'>
-           <SideBar state= {props.state.sidebar}  />
-          
+            
+           <Route render = { () => <SideBarContainer />} />
         </div>
         
        <div className='App-content'>
+          <Route path='/users' render = { () => <UserContainer  />} /> 
           
-          <Route path='/dialogs' render = { () => <Dialogs store={props.store} />} /> 
-          <Route path='/profile'> <Profile profilePage = {props.state.profilePage} dispatch={props.dispatch} /></Route>
+          <Route path='/dialogs' render = { () => <DialogsContainer  />} /> 
+          <Route path='/profile'> <Profile  /></Route>
           
           {/* <Dialogs /> */}
           {/* <News /> */}    
       </div> 
     </div>
     
-    </BrowserRouter>
+    
     
   );
 }
