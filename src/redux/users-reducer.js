@@ -1,6 +1,7 @@
 
 
-const TOGGLE_FOLLOW = 'TOGGLE_FOLLOW';
+const FOLLOW = 'FOLLOW';
+const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_USER_TOTAL_COUNT = 'SET_USER_TOTAL_COUNT';
@@ -20,13 +21,25 @@ let initialState = {
 const usersReducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case TOGGLE_FOLLOW: {
+        case FOLLOW: {
 
             return {
                 ...state,
                  users: state.users.map(  u => {
                     if (u.id === action.userId) {
-                        return {...u, followed: !u.followed}
+                        return {...u, followed: true}
+                    }
+                    return u;
+                    })
+                }
+        }
+        case UNFOLLOW: {
+
+            return {
+                ...state,
+                 users: state.users.map(  u => {
+                    if (u.id === action.userId) {
+                        return {...u, followed: false}
                     }
                     return u;
                     })
@@ -53,7 +66,8 @@ const usersReducer = (state = initialState, action) => {
     }
 
 }
-export const follow = (userId) => ({type :  TOGGLE_FOLLOW, userId})    
+export const follow = (userId) => ({type :  FOLLOW, userId})    
+export const unfollow = (userId) => ({type :   UNFOLLOW, userId})    
 export const setUsers = (users) => ({type :  SET_USERS, users}) 
 export const setCurrentPage = (currentPage) => ({type :  SET_CURRENT_PAGE, currentPage})    
 export const setTotalUserCount = (totalUserCount) => ({type :  SET_USER_TOTAL_COUNT,  count : totalUserCount})    
