@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import { sendMessageCreator, updateNewMessageBodyCreator } from '../../redux/dialogs-reducer';
 import Navbar from '../NavBar/Navbar';
 import DialogItem from './DialogItem/DialogItem';
@@ -28,7 +28,8 @@ const Dialogs = (props) => {
        props.updateNewMessageBody(newBody);
     }
 
-
+     
+    
     return (
         <div className={s.dialogs}>
             <div className={s.dialogItems}>

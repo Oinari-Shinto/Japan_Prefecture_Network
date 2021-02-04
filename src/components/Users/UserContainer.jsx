@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { follow, unfollow, setCurrentPage, toggleFollowingProgress, getUsers } from '../../redux/users-reducer';
 import Users from './Users';
 import Preloader from './../common/Preloader/Preloader';
+import { compose } from 'redux';
 
 
 
@@ -53,12 +54,22 @@ let mapStateToProps = (state) => {
     }
 }
 
+export default compose(
+    connect(mapStateToProps,
+            {
+            follow,
+            unfollow,
+            setCurrentPage,
+            getUsers
+            })
+)(UsersContainer)
 
-export default connect(mapStateToProps,
-    {
-    follow,
-    unfollow,
-    setCurrentPage,
-    getUsers
-    }
-)(UsersContainer);
+
+// export default connect(mapStateToProps,
+//     {
+//     follow,
+//     unfollow,
+//     setCurrentPage,
+//     getUsers
+//     }
+// )(UsersContainer);
