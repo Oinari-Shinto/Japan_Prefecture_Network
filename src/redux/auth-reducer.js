@@ -1,3 +1,4 @@
+import { stopSubmit } from "redux-form";
 import { authApi } from "../api/api";
 
 
@@ -23,8 +24,8 @@ const authReducer = (state = initialState, action) => {
 
             return {
                 ...state,
-                ...action.data,
-                isAuth: true
+                ...action.payload,
+                
                  
                 }
         }
@@ -37,20 +38,39 @@ const authReducer = (state = initialState, action) => {
 
 }
 export const toggleIsFetching = (isFetching) => ({type :  TOGGLE_IS_FETCHING,  isFetching })  
-export const setAuthUserData = (userId, login, email) => ({type :  SET_USER_DATA, data : {userId, login, email} })    
+export const setAuthUserData = (userId, login, email, isAuth) => ({type :  SET_USER_DATA, payload : {userId, login, email, isAuth} })    
 
-export const getAuthUserData = () => {
+export const getAuthUserData = () =>  (dispatch) => {
 
-    return (dispatch) => {
-
-        authApi.me()
+       return authApi.me()
             .then(data => {
                 if (data.resultCode === 0) {
                     let {id, login, email} = data.data;
-                    dispatch(setAuthUserData(id, login, email));
+                    dispatch(setAuthUserData(id, login, email, true));
                 }
             });
-   }
+   
+}
+export const login = (email, password, rememberMe) =>  (dispatch) => {
+        authApi.login(email, password, rememberMe)
+            .then(responce => {
+                if (responce.data.resultCode === 0) {
+                    dispatch(getAuthUserData())
+                }
+                else {
+                    let message = responce.data.messages.length > 0 ? responce.data.messages[0] : "Some error";
+                    let action = stopSubmit('login', {_error: message});
+                    dispatch(action);
+                }
+            });   
+}
+export const logout = () =>  (dispatch) => {
+    authApi.logout()
+        .then(responce => {
+            if (responce.data.resultCode === 0) {
+                dispatch(setAuthUserData(null, null, null, false));
+            }
+        });   
 }
 
 
