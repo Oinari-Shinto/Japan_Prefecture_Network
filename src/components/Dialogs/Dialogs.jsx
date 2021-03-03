@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink, Redirect } from 'react-router-dom';
 import { Field, Form, reduxForm } from 'redux-form';
 import { sendMessageCreator, updateNewMessageBodyCreator } from '../../redux/dialogs-reducer';
-import { Textarea } from '../common/FormsControls/FormsControls';
+import { TextArea } from '../common/FormsControls/FormsControls';
 import Navbar from '../NavBar/Navbar';
 import { maxLengthCreator, required } from '../utils/validators/validator';
 import DialogItem from './DialogItem/DialogItem';
@@ -51,7 +51,7 @@ const Dialogs = (props) => {
 const AddMessageForm = (props) => {
     return (
         <form onSubmit = {props.handleSubmit}>
-            <Field component = {Textarea} name = {"newMessageBody"} placeholder= {"Enter your message"}
+            <Field component = {TextArea} name = {"newMessageBody"} placeholder= {"Enter your message"}
             validate={[required, maxLength50 ]}/>
     
             <div>

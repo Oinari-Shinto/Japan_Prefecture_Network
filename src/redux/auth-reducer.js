@@ -2,7 +2,7 @@ import { stopSubmit } from "redux-form";
 import { authApi } from "../api/api";
 
 
-const SET_USER_DATA = 'SET_USER_DATA';
+const SET_USER_DATA = 'japanese_prefecture/auth/SET_USER_DATA';
 
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
@@ -40,20 +40,20 @@ const authReducer = (state = initialState, action) => {
 export const toggleIsFetching = (isFetching) => ({type :  TOGGLE_IS_FETCHING,  isFetching })  
 export const setAuthUserData = (userId, login, email, isAuth) => ({type :  SET_USER_DATA, payload : {userId, login, email, isAuth} })    
 
-export const getAuthUserData = () =>  (dispatch) => {
+export const getAuthUserData = () => async  (dispatch) => { 
 
-       return authApi.me()
-            .then(data => {
-                if (data.resultCode === 0) {
-                    let {id, login, email} = data.data;
-                    dispatch(setAuthUserData(id, login, email, true));
+       let responce = await authApi.me();
+                
+                if (responce.data.resultCode === 0) { 
+                    let {id, login, email} = responce.data.data;
+                    dispatch(setAuthUserData(id, login, email,  true));
                 }
-            });
+            
    
 }
-export const login = (email, password, rememberMe) =>  (dispatch) => {
-        authApi.login(email, password, rememberMe)
-            .then(responce => {
+export const login = (email, password, rememberMe) => async  (dispatch) => {
+        let responce = await authApi.login(email, password, rememberMe);
+            
                 if (responce.data.resultCode === 0) {
                     dispatch(getAuthUserData())
                 }
@@ -62,15 +62,15 @@ export const login = (email, password, rememberMe) =>  (dispatch) => {
                     let action = stopSubmit('login', {_error: message});
                     dispatch(action);
                 }
-            });   
+             
 }
-export const logout = () =>  (dispatch) => {
-    authApi.logout()
-        .then(responce => {
+export const logout = () => async (dispatch) => {
+    let responce = await authApi.logout();
+        
             if (responce.data.resultCode === 0) {
                 dispatch(setAuthUserData(null, null, null, false));
             }
-        });   
+           
 }
 
 
