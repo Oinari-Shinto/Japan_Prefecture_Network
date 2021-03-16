@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/Oinari-Shinto/Japan_Prefecture_Network.git/static/css/main.bce6adb6.chunk.css",
+    "main.js": "/Oinari-Shinto/Japan_Prefecture_Network.git/static/js/main.d620cecc.chunk.js",
+    "main.js.map": "/Oinari-Shinto/Japan_Prefecture_Network.git/static/js/main.d620cecc.chunk.js.map",
+    "runtime-main.js": "/Oinari-Shinto/Japan_Prefecture_Network.git/static/js/runtime-main.9055dbb9.js",
+    "runtime-main.js.map": "/Oinari-Shinto/Japan_Prefecture_Network.git/static/js/runtime-main.9055dbb9.js.map",
+    "static/js/2.edb9557c.chunk.js": "/Oinari-Shinto/Japan_Prefecture_Network.git/static/js/2.edb9557c.chunk.js",
+    "static/js/2.edb9557c.chunk.js.map": "/Oinari-Shinto/Japan_Prefecture_Network.git/static/js/2.edb9557c.chunk.js.map",
+    "static/js/3.50d1366e.chunk.js": "/Oinari-Shinto/Japan_Prefecture_Network.git/static/js/3.50d1366e.chunk.js",
+    "static/js/3.50d1366e.chunk.js.map": "/Oinari-Shinto/Japan_Prefecture_Network.git/static/js/3.50d1366e.chunk.js.map",
+    "index.html": "/Oinari-Shinto/Japan_Prefecture_Network.git/index.html",
+    "static/css/main.bce6adb6.chunk.css.map": "/Oinari-Shinto/Japan_Prefecture_Network.git/static/css/main.bce6adb6.chunk.css.map",
+    "static/js/2.edb9557c.chunk.js.LICENSE.txt": "/Oinari-Shinto/Japan_Prefecture_Network.git/static/js/2.edb9557c.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/Oinari-Shinto/Japan_Prefecture_Network.git/static/media/logo.6ce24c58.svg",
+    "static/media/user.dbca342c.png": "/Oinari-Shinto/Japan_Prefecture_Network.git/static/media/user.dbca342c.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9055dbb9.js",
+    "static/js/2.edb9557c.chunk.js",
+    "static/css/main.bce6adb6.chunk.css",
+    "static/js/main.d620cecc.chunk.js"
+  ]
+}
