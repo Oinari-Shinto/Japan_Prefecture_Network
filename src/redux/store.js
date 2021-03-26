@@ -23,6 +23,7 @@ let store = {
                 {id: 4, name: 'Kami-Sama'},
                 {id: 5, name: 'Kuhulin'},
                 {id: 6, name: 'Shinamori'},
+                {id: 7, name: 'Lebowski'},
             ],
             messages : [
                 {id: 1, message: 'おはようございます'},

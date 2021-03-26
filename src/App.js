@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from './components/NavBar/Navbar';
 import NavbarRight from './components/NavBarRight/NavbarRight';
 import Preview from './components/Preview/Preview';
-import { BrowserRouter, Route, withRouter } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Route, withRouter } from 'react-router-dom';
 import SideBarContainer from './components/SideBar/SideBarContainer';
 import UserContainer from './components/Users/UserContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
@@ -77,11 +77,11 @@ let AppContainer = compose(
    connect (mapStateToProps, { initializeApp }))(App);
 
 const MainApp = (props) => {
-  return <BrowserRouter>
+  return <HashRouter>
       <Provider store = {store}>
         <AppContainer />
       </Provider> 
-    </BrowserRouter>
+    </HashRouter>
 }
 
 export default MainApp;

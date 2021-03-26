@@ -29,7 +29,7 @@ const LoginForm = ({handleSubmit, error}) => {
 
 
 const LoginReduxForm = reduxForm({
-   form: 'login' // a unique name for this form
+form: 'login' // a unique name for this form
  })(LoginForm);
 
  
