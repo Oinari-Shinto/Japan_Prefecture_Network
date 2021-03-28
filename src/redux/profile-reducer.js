@@ -97,12 +97,12 @@ export const  savePhoto = (file) => async (dispatch) => {
     }
 }
 
-export const  saveProfile = (profile) => async (dispatch) => {
-       
-    let response = await profileApi.saveProfile(profile);
+export const  saveProfile = (profile) => async (dispatch, getState) => {
+    const userId = getState().auth.userId;
+    const response = await profileApi.saveProfile(profile);
 
     if(response.data.resultCode === 0) {
-        dispatch(savePhotoSuccess(response.data.data.photos)); 
+        dispatch(getUserProfile(userId)); 
     }
 }
 

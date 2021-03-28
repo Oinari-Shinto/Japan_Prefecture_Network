@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { reduxForm } from 'redux-form';
 import { createField, Input, TextArea } from '../../common/FormsControls/FormsControls';
 
-const ProfileDataForm = ({ profile, handleSubmit }) => {
+const ProfileDataForm = ({ handleSubmit }) => {
     return  <form onSubmit= {handleSubmit}>
     <div><button>save</button></div>
     
-    <div><b>Name</b>: {createField ("Name Prefecture", "fullname", Input, [] )}</div>
+    <div><b>Name</b>: {createField ("Name Prefecture", "fullName", Input, [] )}</div>
     <div><b>About prefecture</b>: {createField ("About prefecture", "aboutMe", TextArea , [] )}</div>
 
     
