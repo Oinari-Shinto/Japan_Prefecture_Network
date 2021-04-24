@@ -9,7 +9,7 @@ const SideBar = (props) => {
   
   let state = props.state;
   
-  let sideBarElement = state.friends.map ( f => <Friend name = {f.name} img={f.img}/>);
+  let sideBarElement = state.friends.map ( f => <Friend key={f.id} name = {f.name} img={f.img}/>);
   return (
 
     <div className={s.sidebar}>
