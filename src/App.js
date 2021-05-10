@@ -19,11 +19,23 @@ import store from './redux/redux-store';
 // import DialogsContainer from './components/Dialogs/DialogsContainer';
 // const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
+
+
 class App extends Component {
+
+  catchAllUnhandledErrors = (reason, promise) => {
+    alert("Some error occured");
+    //console.error(promiseRejectionEvent);
+  }
  
   componentDidMount() {
         
     this.props.initializeApp();
+    window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("unhandledrejection", this.catchAllUnhandledErrors);
   }
 
   render() {

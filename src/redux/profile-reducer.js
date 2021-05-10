@@ -83,7 +83,7 @@ export const getStatus = (userId) => async (dispatch) => {
 }
 
 export const  updateStatus = (status) => async (dispatch) => {
-       
+    //try {} catch (error) {}   
     let response = await profileApi.updateStatus(status);
     if(response.data.resultCode === 0) {
          dispatch(setStatus(status)); 
