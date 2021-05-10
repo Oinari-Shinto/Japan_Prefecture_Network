@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from './components/NavBar/Navbar';
 import NavbarRight from './components/NavBarRight/NavbarRight';
 import Preview from './components/Preview/Preview';
-import { BrowserRouter, HashRouter, Route, withRouter } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Route, Switch, withRouter } from 'react-router-dom';
 import SideBarContainer from './components/SideBar/SideBarContainer';
 import UserContainer from './components/Users/UserContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
@@ -51,15 +51,17 @@ class App extends Component {
 
         <HeaderContainer />
         <Navbar />
-        
         <NavbarRight />
         <Preview />
         <div className='App-sidebar-content'>
+
             
            <Route render={() => <SideBarContainer />} />
         </div>
         
        <div className='App-content'>
+          {/* <Switch></Switch> You can make hare switch if need it */ }
+
           <Route path='/users' render={() => <UserContainer />} /> 
           <Route path='/login' render={() => <Login />} /> 
           <Suspense fallback = {<Preloader />}>
