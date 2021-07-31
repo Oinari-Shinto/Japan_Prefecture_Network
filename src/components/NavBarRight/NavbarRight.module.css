@@ -4,6 +4,7 @@
 }
 .item {
   color: white;
+  cursor: pointer;
 }
 .topNav{
   margin-top: 20px;
