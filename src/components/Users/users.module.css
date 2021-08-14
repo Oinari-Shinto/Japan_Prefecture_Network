@@ -1,0 +1,35 @@
+.parent {
+    
+        display: grid;
+        grid-template-columns: minmax(5%, 10%) 15%;
+        padding: 13;
+        margin: 15  
+  }
+
+
+.parent2 {
+    
+    display: table;
+    grid-template-columns: 8% ;
+    padding: 13;
+    margin: 15
+
+
+
+
+}
+.userPhoto {
+    width: 100px;
+    height: 100px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.box {
+    height: 5vh;
+  background: lightpink;
+  font-size: 1rem;
+  text-align: center;
+  padding: 13;
+  margin: 15
+  }

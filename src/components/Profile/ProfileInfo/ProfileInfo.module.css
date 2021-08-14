@@ -1,0 +1,22 @@
+.descriptionBlock{
+  color: bisque;
+  
+}
+
+.AppLink{
+  color: #61dafb;
+  
+}
+
+.statusBlock {
+  padding: 5px;
+  padding-bottom: 15px;
+}
+
+.UserAvatar {
+  width: 120px;
+}
+
+.contactCSS {
+  padding-left: 10px;
+}

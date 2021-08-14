@@ -1,0 +1,11 @@
+.nav {
+  grid-area: nbRight;
+  background-color:#30353f ;
+}
+.item {
+  color: white;
+  cursor: pointer;
+}
+.topNav{
+  margin-top: 20px;
+}

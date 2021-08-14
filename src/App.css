@@ -1,0 +1,36 @@
+.App {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "nbLeft  content nbRight"
+        "nbLeft  content nbRight"
+        "sideBarLeft   nw nbRight"
+        "sideBarLeft   nw nbRight"
+        "sideBarLeft   p nbRight"
+        "sideBarLeft   p nbRight"
+    ;
+    grid-template-columns: 1fr 10fr 1fr;
+    grid-template-rows: 350px 250px 250px 350px;
+
+    text-align: center;
+}
+
+.App-sidebar-content {
+    grid-area: sideBarLeft;
+    background-color: #3f3830;
+    text-align: center;
+    
+    padding: 10px;
+    
+}
+
+.App-content {
+
+    grid-area: nw;
+    background-color: #282c34;
+    text-align: left;
+    padding: 10px;
+
+
+
+}
